@@ -1,12 +1,28 @@
+import { Link } from "react-router-dom";
+import { ChevronRightIcon } from "@heroicons/react/24/outline";
+
+import Button from "../../components/form/Button";
+
+import "../../css/animation.css";
+
+// img
 import Banner from "../../assets/images/banner.png";
 import Search from "../../assets/images/search.png";
 import Reservation from "../../assets/images/reservation.png";
 import Review from "../../assets/images/review.png";
-import { Link } from "react-router-dom";
-import Button from "../../components/form/Button";
-import { ChevronRightIcon } from "@heroicons/react/24/outline";
+import sample1 from "../../assets/images/sample/sample13.jpg";
+import sample2 from "../../assets/images/sample/sample20.jpg";
+import sample3 from "../../assets/images/sample/sample22.jpg";
+import sample4 from "../../assets/images/sample/sample17.jpg";
+import sample5 from "../../assets/images/sample/sample21.jpg";
+import sample6 from "../../assets/images/sample/sample6.jpg";
+import sample7 from "../../assets/images/sample/sample5.jpg";
+import sample8 from "../../assets/images/sample/sample23.jpg";
 
 const Main = () => {
+  const marquee1 = [sample1, sample2, sample3, sample4, sample5, sample6];
+  const marquee2 = [sample2, sample6, sample7, sample1, sample8, sample3];
+
   return (
     <div className="flex flex-col gap-40 pt-[7.5rem] pb-20">
       <section className="w-full max-w-screen-2xl mx-auto px-20">
@@ -97,9 +113,9 @@ const Main = () => {
         </div>
       </section>
 
-      <section className="w-full min-h-[80vh] px-20 bg-gray-100">
-        <div className="max-w-screen-2xl mx-auto">
-          <div className="flex flex-col gap-6 py-[7.5rem]">
+      <section className="w-full bg-gray-100">
+        <div className="overflow-hidden flex flex-col md:flex-row gap-12 md:gap-32 max-w-screen-2xl md:h-[60vh] mx-auto py-[7.5rem] md:py-0 md:px-20">
+          <div className="flex flex-col gap-6 min-w-fit md:py-[7.5rem] px-20 md:px-0">
             <h2 className="text-4xl font-bold leading-normal">
               다양한 장소, <br />
               무한한 가능성
@@ -114,7 +130,69 @@ const Main = () => {
             </p>
           </div>
 
-          <div></div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
+            <div className="flex md:flex-col gap-10 w-max md:w-auto translate-x-[-50%] md:translate-x-0 md:translate-y-[-50%]">
+              <div className="marquee flex md:flex-col gap-10 w-max md:w-auto">
+                {marquee1.map((img) => (
+                  <div
+                    key={img}
+                    className="flex-shrink-0 overflow-hidden h-60 md:h-[30vh] rounded-2xl"
+                  >
+                    <img
+                      src={img}
+                      alt="slide img"
+                      className="w-full h-full object-cover object-bottom aspect-video"
+                    />
+                  </div>
+                ))}
+              </div>
+              <div className="marquee flex md:flex-col gap-10 w-max md:w-auto">
+                {marquee1.map((img) => (
+                  <div
+                    key={img}
+                    className="flex-shrink-0 overflow-hidden h-60 md:h-[30vh] rounded-2xl"
+                  >
+                    <img
+                      src={img}
+                      alt="slide img"
+                      className="w-full h-full object-cover object-bottom aspect-video"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex md:flex-col gap-10 w-max md:w-auto translate-x-[-60%] md:translate-x-0 md:translate-y-[-20%]">
+              <div className="marquee_reverse flex md:flex-col gap-10 w-max md:w-auto">
+                {marquee2.map((img) => (
+                  <div
+                    key={img}
+                    className="flex-shrink-0 overflow-hidden h-60 md:h-[30vh] rounded-2xl"
+                  >
+                    <img
+                      src={img}
+                      alt="slide img"
+                      className="w-full h-full object-cover object-bottom aspect-video"
+                    />
+                  </div>
+                ))}
+              </div>
+              <div className="marquee_reverse flex md:flex-col gap-10 w-max md:w-auto">
+                {marquee2.map((img) => (
+                  <div
+                    key={img}
+                    className="flex-shrink-0 overflow-hidden h-60 md:h-[30vh] rounded-2xl"
+                  >
+                    <img
+                      src={img}
+                      alt="slide img"
+                      className="w-full h-full object-cover object-bottom aspect-video"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -129,7 +207,7 @@ const Main = () => {
           공유해보세요.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-10">
           <div className="py-10 px-20 bg-violet-50 rounded-2xl">
             <p className="text-gray-600">GUEST</p>
             <h3 className="mt-3 mb-10 text-gray-600 text-2xl font-bold">
