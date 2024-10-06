@@ -114,7 +114,7 @@ const Main = () => {
       </section>
 
       <section className="w-full bg-gray-100">
-        <div className="overflow-hidden flex flex-col md:flex-row gap-12 md:gap-32 max-w-screen-2xl md:h-[60vh] mx-auto py-[7.5rem] md:py-0 md:px-20">
+        <div className="overflow-hidden flex flex-col md:flex-row gap-12 md:gap-32 max-w-screen-2xl md:h-[80vh] mx-auto py-[7.5rem] md:py-0 md:px-20">
           <div className="flex flex-col gap-6 min-w-fit md:py-[7.5rem] px-20 md:px-0">
             <h2 className="text-4xl font-bold leading-normal">
               다양한 장소, <br />
@@ -162,7 +162,7 @@ const Main = () => {
               </div>
             </div>
 
-            <div className="flex md:flex-col gap-10 w-max md:w-auto translate-x-[-60%] md:translate-x-0 md:translate-y-[-20%]">
+            <div className="flex md:flex-col gap-10 w-max md:w-auto translate-x-[-60%] md:translate-x-0 md:translate-y-[-30%]">
               <div className="marquee_reverse flex md:flex-col gap-10 w-max md:w-auto">
                 {marquee2.map((img) => (
                   <div
