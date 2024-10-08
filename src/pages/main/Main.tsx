@@ -10,15 +10,14 @@ import Banner from "../../assets/images/banner.png";
 import Search from "../../assets/images/search.png";
 import Reservation from "../../assets/images/reservation.png";
 import Review from "../../assets/images/review.png";
-import sample1 from "../../assets/images/sample/sample13.jpg";
-import sample2 from "../../assets/images/sample/sample20.jpg";
-import sample3 from "../../assets/images/sample/sample22.jpg";
-import sample4 from "../../assets/images/sample/sample17.jpg";
-import sample5 from "../../assets/images/sample/sample21.jpg";
-import sample6 from "../../assets/images/sample/sample6.jpg";
-import sample7 from "../../assets/images/sample/sample5.jpg";
-import sample8 from "../../assets/images/sample/sample23.jpg";
-import MainComponent from "../../components/MainComponent";
+import sample1 from "/images/sample13.jpg";
+import sample2 from "/images/sample20.jpg";
+import sample3 from "/images/sample22.jpg";
+import sample4 from "/images/sample17.jpg";
+import sample5 from "/images/sample21.jpg";
+import sample6 from "/images/sample6.jpg";
+import sample7 from "/images/sample5.jpg";
+import sample8 from "/images/sample23.jpg";
 
 const Main = () => {
   const marquee1 = [sample1, sample2, sample3, sample4, sample5, sample6];
