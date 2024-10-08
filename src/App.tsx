@@ -17,7 +17,7 @@ function App() {
       <main
         className={twMerge(
           `flex-1 max-w-full tracking-tight ${
-            currentPath.pathname !== "/" && "max-w-screen-2xl mx-auto"
+            currentPath.pathname !== "/" && "max-w-screen-2xl mx-auto px-20"
           }`
         )}
       >
