@@ -1,14 +1,12 @@
-import { useLocation } from "react-router-dom";
+import { ReactNode } from "react";
 import { twMerge } from "tailwind-merge";
 
 type Props = {
   className?: string;
-  children: any;
+  children: ReactNode;
 };
 
 const MainComponent = ({ className, children }: Props) => {
-  const currentPath = useLocation();
-
   return (
     <main
       className={twMerge(
