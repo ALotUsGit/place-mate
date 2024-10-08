@@ -14,20 +14,12 @@ function App() {
     <>
       <Header />
 
-      <main
-        className={twMerge(
-          `flex-1 max-w-full tracking-tight ${
-            currentPath.pathname !== "/" && "max-w-screen-2xl mx-auto"
-          }`
-        )}
-      >
-        <Routes>
-          <Route path="/" element={<Main />} />
-          <Route path="/place" element={<Place />} />
-          <Route path="/notice" element={<Notice />} />
-          <Route path="/faq" element={<Faq />} />
-        </Routes>
-      </main>
+      <Routes>
+        <Route path="/" element={<Main />} />
+        <Route path="/place" element={<Place />} />
+        <Route path="/notice" element={<Notice />} />
+        <Route path="/faq" element={<Faq />} />
+      </Routes>
 
       <Footer />
     </>

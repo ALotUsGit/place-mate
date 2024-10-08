@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
-    <footer className="mt-20 py-10 px-20 text-gray-600 text-sm leading-none bg-gray-100">
+    <footer className="py-10 px-20 text-gray-600 text-sm leading-none bg-gray-100">
       <div className="max-w-screen-2xl mx-auto">
         <nav className="flex gap-3 mb-10">
           <Link to="/">이용약관</Link>
