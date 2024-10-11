@@ -1,42 +1,38 @@
+import { useEffect, useState } from "react";
+import { Response, fetchPlaces } from "../../requests/place/fetchPlaces";
+
 import MainComponent from "../../components/MainComponent";
 import PlaceItem from "../../components/PlaceItem";
-
-import sample1 from "/images/sample1.jpg";
-
-const MOCK_DATA: Response[] = [
-  {
-    id: "1",
-    img: sample1,
-    title: "샘플 공간",
-    loc: "경기 성남시 분당구 판교역로 166",
-    price: 56000,
-    standard: "hour",
-    standardHour: 1,
-    standardPeople: 4,
-    maxPeople: 8,
-  },
-];
-
-type Response = {
-  id: string;
-  img: string;
-  title: string;
-  loc: string;
-  price: number;
-  standard: "hour" | "stay";
-  standardHour: number;
-  standardPeople: number;
-  maxPeople: number;
-};
+import LoadPlaceItem from "../../components/loading/LoadPlceItem";
 
 const Place = () => {
+  const [loading, setLoding] = useState(true);
+  const [placeData, setPlaceData] = useState<Response[]>([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const { data } = await fetchPlaces();
+        console.log(data);
+        setPlaceData(data);
+      } catch (error) {
+        console.error("데이터를 불러오는데 실패했습니다.", error);
+      } finally {
+        setLoding(false);
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
     <MainComponent>
       <section>
         <ul className="grid grid-cols-5 gap-x-10">
-          {MOCK_DATA.map((data) => (
-            <PlaceItem key={data.id} data={data} />
-          ))}
+          {loading ? (
+            <LoadPlaceItem />
+          ) : (
+            placeData.map((data) => <PlaceItem key={data.id} data={data} />)
+          )}
         </ul>
       </section>
     </MainComponent>

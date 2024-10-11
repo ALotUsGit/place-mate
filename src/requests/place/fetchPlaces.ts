@@ -1,25 +1,27 @@
 const MOCK_DATA = [
   {
-    id: "0",
-    title: "쉬는 공간",
-    loc: "서울시 관악구 신림로 123길 123-11",
-    price: 123678,
-    minHour: 1,
-    minDate: false,
-    standardPerson: 4,
-    maxPerson: 8,
+    id: "1",
+    img: "/images/sample1.jpg",
+    title: "샘플 공간",
+    loc: "경기 성남시 분당구 판교역로 166",
+    price: 56000,
+    standard: "hour",
+    standardHour: 1,
+    standardPeople: 4,
+    maxPeople: 8,
   },
 ];
 
-type Response = {
+export type Response = {
   id: string;
+  img: string;
   title: string;
   loc: string;
   price: number;
-  minHour: number;
-  minDate: boolean;
-  standardPerson: number;
-  maxPerson: number;
+  standard: "hour" | "stay";
+  standardHour: number;
+  standardPeople: number;
+  maxPeople: number;
 };
 
 export const fetchPlaces = () => {

@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <header className="sticky top-0 py-6 px-20 bg-white z-50">
-      <div className="flex items-center gap-10 max-w-screen-2xl mx-auto">
+    <header className="sticky top-0 bg-white z-50">
+      <div className="flex items-center gap-10 max-w-screen-2xl mx-auto py-6 px-20 2xl:px-0">
         <Link to="/" className="text-2xl leading-none font-bold">
           PLACE MATE
         </Link>

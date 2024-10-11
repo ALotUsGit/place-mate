@@ -1,17 +1,4 @@
 import { MapPinIcon } from "@heroicons/react/24/outline";
-import { useEffect } from "react";
-
-type Response = {
-  id: string;
-  img: string;
-  title: string;
-  loc: string;
-  price: number;
-  standard: "hour" | "stay";
-  standardHour: number;
-  standardPeople: number;
-  maxPeople: number;
-};
 
 const PlaceItem = ({ data }: any) => {
   return (
@@ -20,10 +7,10 @@ const PlaceItem = ({ data }: any) => {
         <img src={data.img} />
       </div>
       <div>
-        <h3 className="font-bold leading-none">{data.title}</h3>
+        <h3 className="font-bold leading-none truncate">{data.title}</h3>
         <p className="flex items-center gap-2 mt-2 mb-4">
           <MapPinIcon className="size-4 text-gray-800" />
-          <span className="text-sm/none">{data.loc}</span>
+          <span className="text-sm/none truncate">{data.loc}</span>
         </p>
         <div className="flex items-center gap-2">
           <p className="text-lg/none font-semibold">
