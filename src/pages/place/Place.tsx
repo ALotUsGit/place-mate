@@ -1,3 +1,4 @@
+import MainComponent from "../../components/MainComponent";
 import PlaceItem from "../../components/PlaceItem";
 
 import sample1 from "/images/sample1.jpg";
@@ -30,7 +31,7 @@ type Response = {
 
 const Place = () => {
   return (
-    <>
+    <MainComponent>
       <section>
         <ul className="grid grid-cols-5 gap-x-10">
           {MOCK_DATA.map((data) => (
@@ -38,7 +39,7 @@ const Place = () => {
           ))}
         </ul>
       </section>
-    </>
+    </MainComponent>
   );
 };
 export default Place;

@@ -18,14 +18,15 @@ import sample5 from "/images/sample21.jpg";
 import sample6 from "/images/sample6.jpg";
 import sample7 from "/images/sample5.jpg";
 import sample8 from "/images/sample23.jpg";
+import MainComponent from "../../components/MainComponent";
 
 const Main = () => {
   const marquee1 = [sample1, sample2, sample3, sample4, sample5, sample6];
   const marquee2 = [sample2, sample6, sample7, sample1, sample8, sample3];
 
   return (
-    <MainComponent className="flex flex-col gap-40 max-w-full mt-[7.5rem] mb-40">
-      <section className="w-full max-w-screen-2xl mx-auto px-20">
+    <MainComponent className="flex flex-col gap-40 max-w-full mt-[7.5rem] mb-40 mx-0 px-0">
+      <section className="w-full max-w-screen-2xl mx-auto px-20 2xl:px-0">
         <h2 className="text-4xl text-center">
           언제 어디서나 <strong>완벽한 장소</strong>를 찾아보세요!
         </h2>
@@ -38,7 +39,7 @@ const Main = () => {
         </div>
       </section>
 
-      <section className="w-full max-w-screen-2xl mx-auto px-20">
+      <section className="w-full max-w-screen-2xl mx-auto px-20 2xl:px-0">
         <h2 className="text-4xl text-center font-bold">
           PLACE MATE의 특별한 기능
         </h2>
@@ -114,7 +115,7 @@ const Main = () => {
       </section>
 
       <section className="w-full bg-gray-100">
-        <div className="overflow-hidden flex flex-col md:flex-row gap-12 md:gap-32 max-w-screen-2xl md:h-[80vh] mx-auto py-[7.5rem] md:py-0 md:px-20">
+        <div className="overflow-hidden flex flex-col md:flex-row gap-12 md:gap-32 max-w-screen-2xl md:h-[80vh] mx-auto py-[7.5rem] md:py-0 md:px-20 2xl:px-0">
           <div className="flex flex-col gap-6 min-w-fit md:py-[7.5rem] px-20 md:px-0">
             <h2 className="text-4xl font-bold leading-normal">
               다양한 장소, <br />
@@ -196,7 +197,7 @@ const Main = () => {
         </div>
       </section>
 
-      <section className="w-full max-w-screen-2xl mx-auto px-20">
+      <section className="w-full max-w-screen-2xl mx-auto px-20 2xl:px-0">
         <h2 className="text-4xl text-center font-bold">
           하나의 계정으로 더 많은 자유를!
         </h2>
