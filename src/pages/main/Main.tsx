@@ -18,13 +18,14 @@ import sample5 from "../../assets/images/sample/sample21.jpg";
 import sample6 from "../../assets/images/sample/sample6.jpg";
 import sample7 from "../../assets/images/sample/sample5.jpg";
 import sample8 from "../../assets/images/sample/sample23.jpg";
+import MainComponent from "../../components/MainComponent";
 
 const Main = () => {
   const marquee1 = [sample1, sample2, sample3, sample4, sample5, sample6];
   const marquee2 = [sample2, sample6, sample7, sample1, sample8, sample3];
 
   return (
-    <div className="flex flex-col gap-40 pt-[7.5rem] pb-20">
+    <MainComponent className="flex flex-col gap-40 max-w-full mt-[7.5rem] mb-40">
       <section className="w-full max-w-screen-2xl mx-auto px-20">
         <h2 className="text-4xl text-center">
           언제 어디서나 <strong>완벽한 장소</strong>를 찾아보세요!
@@ -233,7 +234,7 @@ const Main = () => {
           </div>
         </div>
       </section>
-    </div>
+    </MainComponent>
   );
 };
 
