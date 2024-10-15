@@ -37,7 +37,7 @@
 
 ### 개발 환경
 - Frontend Library : React
-- Backend : Java
+- Backend : Java 
 - Styling : tailwind css
 - Language : TypeScript
 - SVC : Github
