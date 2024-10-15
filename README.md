@@ -36,7 +36,7 @@
 
 
 ### 개발 환경
-- Frontend Library : React
+- Frontend Library : React 18.3.1
 - Backend : Java
 - Styling : tailwind css
 - Language : TypeScript
