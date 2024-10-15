@@ -1,15 +1,12 @@
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Main from "./pages/main/Main";
-import { Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import Place from "./pages/place/Place";
 import Notice from "./pages/notice/Notice";
 import Faq from "./pages/inquiry/faq/Faq";
-import { twMerge } from "tailwind-merge";
 
 function App() {
-  const currentPath = useLocation();
-
   return (
     <>
       <Header />
