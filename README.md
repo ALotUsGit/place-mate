@@ -37,8 +37,8 @@
 
 ### 개발 환경
 - Frontend Library : React 18.3.1
-- Backend : Java
-- Styling : tailwind css
-- Language : TypeScript
+- Backend : Java 
+- Styling : tailwind css 3.4.13
+- Language : TypeScript 5.5.3
 - SVC : Github
 - Design Tool : Figma
