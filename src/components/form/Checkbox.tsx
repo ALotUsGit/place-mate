@@ -1,13 +1,15 @@
 import { useId } from "react";
+import { twMerge } from "tailwind-merge";
 
 type checkboxProps = Omit<
   React.ComponentPropsWithoutRef<"input">,
   "type" | "id"
 > & {
+  className?: string;
   children: React.ReactNode;
 };
 
-const Checkbox = ({ children, ...props }: checkboxProps) => {
+const Checkbox = ({ className, children, ...props }: checkboxProps) => {
   const id = useId();
 
   return (
@@ -18,7 +20,9 @@ const Checkbox = ({ children, ...props }: checkboxProps) => {
         className="cursor-pointer rounded-sm border-gray-400 checked:bg-indigo-600 checked:hover:bg-indigo-700 focus:ring-transparent checked:focus:bg-indigo-700"
         {...props}
       />
-      <span className="text-sm/none text-gray-600">{children}</span>
+      <span className={twMerge("text-sm/none text-gray-600", className)}>
+        {children}
+      </span>
     </label>
   );
 };

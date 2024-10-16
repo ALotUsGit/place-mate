@@ -13,8 +13,8 @@ import {
   MagnifyingGlassIcon,
 } from "@heroicons/react/24/outline";
 import Button from "../../components/form/Button";
-import Input from "../../components/form/Input";
-import { Select, SelectList } from "../../components/form/Select";
+import { Input } from "../../components/form/Input";
+import { Select } from "../../components/form/Select";
 
 const Tabs = ["popular", "new"];
 

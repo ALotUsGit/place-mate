@@ -21,7 +21,7 @@ const Header = () => {
           <Link to="/mypage">
             <UserIcon className="size-6" />
           </Link>
-          <Link to="/login">
+          <Link to="/signin">
             <ArrowLeftStartOnRectangleIcon className="size-6 " />
           </Link>
         </div>
