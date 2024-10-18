@@ -10,8 +10,8 @@ const MainComponent = ({ className, children }: Props) => {
   return (
     <main
       className={twMerge(
-        "flex-1 w-full max-w-screen-2xl mx-auto px-20 tracking-tight 2xl:px-0",
-        className
+        "mx-auto my-20 w-full max-w-screen-2xl flex-1 px-20 tracking-tight 2xl:px-0",
+        className,
       )}
     >
       {children}

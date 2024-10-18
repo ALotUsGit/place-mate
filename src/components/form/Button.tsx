@@ -5,7 +5,7 @@ type TButtonProps = VariantProps<typeof buttonVariants> &
   React.ComponentPropsWithoutRef<"button">;
 
 const buttonVariants = cva(
-  "flex items-center gap-2 rounded-lg bg-white leading-none transition",
+  "flex justify-center items-center gap-2 rounded-lg bg-white leading-none transition-colors",
   {
     variants: {
       variant: {
@@ -15,8 +15,8 @@ const buttonVariants = cva(
       },
       size: {
         sm: "h-9 px-3 text-sm",
-        md: "h-12 px-8 text-lg",
-        lg: "h-15 text-xl",
+        md: "h-12 px-8 text-lg font-medium",
+        lg: "w-full h-16 px-8 text-xl/none font-medium",
       },
     },
     defaultVariants: {
@@ -35,7 +35,13 @@ const Button = ({
 }: TButtonProps) => {
   return (
     <button
-      className={twMerge(cx([buttonVariants({ variant, size }), className]))}
+      className={twMerge(
+        cx([
+          buttonVariants({ variant, size }),
+          "disabled:cursor-not-allowed disabled:opacity-50",
+          className,
+        ]),
+      )}
       {...props}
     >
       {children}

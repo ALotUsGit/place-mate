@@ -13,8 +13,8 @@ import {
   MagnifyingGlassIcon,
 } from "@heroicons/react/24/outline";
 import Button from "../../components/form/Button";
-import Input from "../../components/form/Input";
-import { Select, SelectList } from "../../components/form/Select";
+import { SearchInput } from "../../components/form/Input";
+import { Select } from "../../components/form/Select";
 
 const Tabs = ["popular", "new"];
 
@@ -108,14 +108,14 @@ const Place = () => {
         </ul>
       </section>
 
-      <Input
+      <SearchInput
         type="text"
         placeholder="어떤 공간을 찾고 계신가요?"
         className="mx-auto mt-20 w-4/5 gap-4 rounded-full px-10 py-5 text-xl"
         inputClass="text-xl/none"
       >
         <MagnifyingGlassIcon className="size-8" />
-      </Input>
+      </SearchInput>
 
       <section className="mb-20">
         <div className="sticky top-[2.8125rem] mb-6 mt-16 flex gap-3 bg-white py-4 2xl:top-[4.48rem]">
