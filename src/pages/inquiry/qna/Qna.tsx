@@ -1,10 +1,8 @@
-import MainComponent from "../../../components/MainComponent";
-
 const Qna = () => {
   return (
-    <MainComponent>
+    <section>
       <h1>Qna Component</h1>
-    </MainComponent>
+    </section>
   );
 };
 export default Qna;
