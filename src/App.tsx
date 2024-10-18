@@ -8,6 +8,8 @@ import Faq from "./pages/inquiry/faq/Faq";
 import SignIn from "./pages/auth/SignIn";
 import FindPassword from "./pages/auth/FindPassword";
 import Signup from "./pages/auth/Signup";
+import Qna from "./pages/inquiry/qna/Qna";
+import Inquiry from "./pages/inquiry/Inquiry";
 
 function App() {
   return (
@@ -18,7 +20,11 @@ function App() {
         <Route path="/" element={<Main />} />
         <Route path="/place/*" element={<Place />} />
         <Route path="/notice" element={<Notice />} />
-        <Route path="/faq" element={<Faq />} />
+
+        <Route element={<Inquiry />}>
+          <Route path="/faq" element={<Faq />} />
+          <Route path="/qna" element={<Qna />} />
+        </Route>
         <Route path="/signin" element={<SignIn />} />
         <Route path="/findPassword" element={<FindPassword />} />
         <Route path="/signup" element={<Signup />} />
