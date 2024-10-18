@@ -5,7 +5,7 @@ import {
 } from "@heroicons/react/24/outline";
 import MainComponent from "../../components/MainComponent";
 import Button from "../../components/form/Button";
-import { InputWrap } from "../../components/form/Input";
+import { Input } from "../../components/form/Input";
 import Checkbox from "../../components/form/Checkbox";
 
 const Signup = () => {
@@ -20,7 +20,7 @@ const Signup = () => {
               <span className="font-normal text-rose-600">*</span>
             </p>
           </div>
-          <InputWrap placeholder="닉네임을 입력하세요." msg="" />
+          <Input placeholder="닉네임을 입력하세요." msg="" />
         </div>
 
         <div>
@@ -31,7 +31,7 @@ const Signup = () => {
               <span className="font-normal text-rose-600">*</span>
             </p>
           </div>
-          <InputWrap placeholder="이메일을 입력하세요." msg="" />
+          <Input placeholder="이메일을 입력하세요." msg="" />
         </div>
 
         <div>
@@ -42,11 +42,7 @@ const Signup = () => {
               <span className="font-normal text-rose-600">*</span>
             </p>
           </div>
-          <InputWrap
-            type="password"
-            placeholder="비밀번호를 입력하세요."
-            msg=""
-          />
+          <Input type="password" placeholder="비밀번호를 입력하세요." msg="" />
         </div>
 
         <div>
@@ -57,11 +53,7 @@ const Signup = () => {
               <span className="font-normal text-rose-600">*</span>
             </p>
           </div>
-          <InputWrap
-            type="password"
-            placeholder="비밀번호를 입력하세요."
-            msg=""
-          />
+          <Input type="password" placeholder="비밀번호를 입력하세요." msg="" />
         </div>
 
         <div className="flex flex-col gap-2">

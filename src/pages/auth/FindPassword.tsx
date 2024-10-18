@@ -1,13 +1,13 @@
 import MainComponent from "../../components/MainComponent";
 import Button from "../../components/form/Button";
-import { InputWrap } from "../../components/form/Input";
+import { Input } from "../../components/form/Input";
 
 const FindPassword = () => {
   return (
     <MainComponent className="flex max-w-[30rem] flex-col items-center justify-center gap-9">
       <h2 className="text-xl font-bold">비밀번호 찾기</h2>
       <form action="" className="w-full">
-        <InputWrap placeholder="이메일을 입력하세요." />
+        <Input placeholder="이메일을 입력하세요." />
 
         <p className="mb-9 mt-4 text-gray-600">
           가입된 이메일로 임시 비밀번호를 전송해 드립니다. <br />

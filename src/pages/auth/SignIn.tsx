@@ -1,14 +1,14 @@
 import { Link } from "react-router-dom";
 import MainComponent from "../../components/MainComponent";
 import Button from "../../components/form/Button";
-import { InputWrap } from "../../components/form/Input";
+import { Input } from "../../components/form/Input";
 
 const SignIn = () => {
   return (
     <MainComponent className="flex max-w-[30rem] flex-col items-center justify-center gap-9">
       <form action="" className="flex w-full flex-col gap-4">
-        <InputWrap placeholder="이메일을 입력하세요." />
-        <InputWrap type="password" placeholder="비밀번호를 입력하세요." />
+        <Input placeholder="이메일을 입력하세요." />
+        <Input type="password" placeholder="비밀번호를 입력하세요." />
         <Button variant="secondary" size="lg" disabled>
           SIGN IN
         </Button>

@@ -13,15 +13,17 @@ type TInputProps = VariantProps<typeof inputVariants> &
     inputClass?: string;
   };
 
-type InputWrapProps = {
-  type?: "text" | "email" | "password" | "date" | "number";
-  placeholder: string;
-  status?: "default" | "error" | "success";
-  msg?: string;
-};
+type InputProps = VariantProps<typeof inputVariants> &
+  Omit<React.ComponentPropsWithRef<"input">, "type"> & {
+    type?: "text" | "email" | "password" | "date" | "number";
+    placeholder: string;
+    variant?: "default" | "error" | "success";
+    msg?: string;
+    inputClass?: string;
+  };
 
 const inputVariants = cva(
-  "flex items-center gap-2 rounded-lg leading-none border border-gray-400 px-6 py-3",
+  "flex items-center gap-2 rounded-lg leading-none border border-gray-400 px-6 py-3 focus:ring-transparent placeholder:text-gray-400",
   {
     variants: {
       variant: {
@@ -36,7 +38,7 @@ const inputVariants = cva(
   },
 );
 
-const Input = forwardRef(
+const SearchInput = forwardRef(
   ({
     variant,
     inputClass,
@@ -61,26 +63,31 @@ const Input = forwardRef(
   },
 );
 
-const InputWrap = ({
+const Input = ({
   type = "text",
-  placeholder,
-  status = "default",
+  variant = "default",
   msg = "",
-}: InputWrapProps) => {
+  inputClass,
+  ...props
+}: InputProps) => {
   return (
-    <div>
-      <Input type={type} placeholder={placeholder} variant={status} />
+    <div className="flex flex-col gap-2">
+      <input
+        className={twMerge(cx([inputVariants({ variant }), inputClass]))}
+        {...props}
+      />
+
       {msg.length > 0 && (
         <p
           className={twMerge(
-            "mt-2 flex items-center gap-2 text-xs/none text-gray-600",
-            status === "error" && "text-rose-600",
-            status === "success" && "text-indigo-600",
+            "flex items-center gap-2 text-xs/none text-gray-600",
+            variant === "error" && "text-rose-600",
+            variant === "success" && "text-indigo-600",
           )}
         >
-          {status === "error" ? (
+          {variant === "error" ? (
             <ExclamationCircleIcon className="size-4" />
-          ) : status === "success" ? (
+          ) : variant === "success" ? (
             <CheckCircleIcon className="size-4" />
           ) : (
             <InformationCircleIcon className="size-4" />
@@ -92,4 +99,4 @@ const InputWrap = ({
   );
 };
 
-export { Input, InputWrap };
+export { SearchInput, Input };
