@@ -1,5 +1,6 @@
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
 import MainComponent from "../../components/MainComponent";
+import { SearchInput } from "../../components/ui/Input";
 
 const TABS = [
   { value: "자주 묻는 질문", url: "/faq" },
@@ -7,11 +8,13 @@ const TABS = [
 ];
 
 const Inquiry = () => {
+  const location = useLocation();
+
   return (
     <MainComponent className="my-20 max-w-7xl">
       <h2 className="mb-10 text-4xl font-bold">문의사항</h2>
 
-      <nav className="mb-6">
+      <nav className="mb-6 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
         <ul className="flex gap-4">
           {TABS.map((tab) => (
             <li key={tab.value}>
@@ -24,6 +27,8 @@ const Inquiry = () => {
             </li>
           ))}
         </ul>
+
+        {location.pathname === "/qna" && <SearchInput type="text" />}
       </nav>
 
       <Outlet />

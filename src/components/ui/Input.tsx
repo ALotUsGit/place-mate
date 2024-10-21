@@ -2,15 +2,16 @@ import {
   CheckCircleIcon,
   ExclamationCircleIcon,
   InformationCircleIcon,
+  MagnifyingGlassIcon,
 } from "@heroicons/react/24/outline";
 import { VariantProps, cva, cx } from "class-variance-authority";
 import { forwardRef } from "react";
 import { twMerge } from "tailwind-merge";
 
-type TInputProps = VariantProps<typeof inputVariants> &
-  Omit<React.ComponentPropsWithRef<"input">, "type"> & {
-    type: "text" | "email" | "password" | "date" | "number";
+type SearchProps = VariantProps<typeof inputVariants> &
+  React.ComponentPropsWithRef<"input"> & {
     inputClass?: string;
+    iconSize?: string;
   };
 
 type InputProps = VariantProps<typeof inputVariants> &
@@ -43,21 +44,27 @@ const SearchInput = forwardRef(
     variant,
     inputClass,
     className,
-    children,
+    iconSize,
     ref,
     ...props
-  }: TInputProps) => {
+  }: SearchProps) => {
     return (
-      <div className={twMerge(cx([inputVariants({ variant }), className]))}>
+      <div
+        className={twMerge(
+          cx([inputVariants({ variant }), "w-full sm:w-80", className]),
+        )}
+      >
         <input
           ref={ref}
+          type="text"
           className={twMerge(
-            "flex-1 border-0 p-0 placeholder:text-gray-400 focus:ring-transparent",
+            "flex-1 border-0 p-0 text-sm/none placeholder:text-gray-400 focus:ring-transparent",
             inputClass,
           )}
+          placeholder="검색어를 입력하세요."
           {...props}
         />
-        {children}
+        <MagnifyingGlassIcon className={twMerge("size-5", iconSize)} />
       </div>
     );
   },

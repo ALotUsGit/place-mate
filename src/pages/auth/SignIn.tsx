@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import MainComponent from "../../components/MainComponent";
-import Button from "../../components/form/Button";
-import { Input } from "../../components/form/Input";
+import Button from "../../components/ui/Button";
+import { Input } from "../../components/ui/Input";
 
 const SignIn = () => {
   return (
