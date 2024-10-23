@@ -16,6 +16,7 @@ const Pagination = ({ pages, currentPage }: Props) => {
         {Array.from({ length: pages }, (_, idx) => (
           <Link
             to=""
+            key={idx}
             className={twMerge(
               "flex size-6 items-center justify-center rounded text-sm/none transition-colors hover:bg-gray-50",
               currentPage === idx + 1 &&
