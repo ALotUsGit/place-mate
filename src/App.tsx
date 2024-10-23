@@ -26,7 +26,7 @@ function App() {
           <Route path="/faq" element={<Faq />} />
           <Route path="/qna" element={<Qna />} />
         </Route>
-        <Route path="/qnaDetail" element={<QnaDetail />} />
+        <Route path="/qna/:id" element={<QnaDetail />} />
 
         <Route path="/signin" element={<SignIn />} />
         <Route path="/findPassword" element={<FindPassword />} />

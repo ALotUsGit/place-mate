@@ -30,10 +30,13 @@ const Qna = () => {
     <section>
       <ul>
         {qnaData.map((data) => (
-          <li key={data.id}>
+          <li
+            key={data.id}
+            className="border-b border-gray-300 py-6 first:border-t"
+          >
             <Link
-              to="/qnaDetail"
-              className="flex flex-col items-start gap-6 border-b border-gray-300 py-6 first:border-t sm:flex-row sm:items-center"
+              to={`/qna/${data.id}`}
+              className="flex flex-col items-start gap-6 sm:flex-row sm:items-center"
             >
               <span className="w-24 truncate text-gray-600 sm:text-center">
                 {data.userId}
