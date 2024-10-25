@@ -4,6 +4,7 @@ import Main from "./pages/main/Main";
 import { Route, Routes } from "react-router-dom";
 import Place from "./pages/place/Place";
 import Notice from "./pages/notice/Notice";
+import NoticeDetail from "./pages/notice/NoticeDetail";
 import Faq from "./pages/inquiry/faq/Faq";
 import SignIn from "./pages/auth/SignIn";
 import FindPassword from "./pages/auth/FindPassword";
@@ -22,6 +23,7 @@ function App() {
         <Route path="/" element={<Main />} />
         <Route path="/place/*" element={<Place />} />
         <Route path="/notice" element={<Notice />} />
+        <Route path="/notice/:id" element={<NoticeDetail />} />
 
         <Route element={<Inquiry />}>
           <Route path="/faq" element={<Faq />} />
