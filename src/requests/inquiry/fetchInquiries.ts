@@ -2,7 +2,7 @@ const MOCK_DATA = [
   {
     id: "1",
     userId: "aryeon",
-    title: "질문이있어요",
+    title: "대여 가능한 장소에 대한 문의",
     createdAt: "2024-08-01T00:00:00Z",
     private: true,
   },

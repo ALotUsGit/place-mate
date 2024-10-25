@@ -20,6 +20,8 @@ type InputProps = VariantProps<typeof inputVariants> &
     placeholder: string;
     variant?: "default" | "error" | "success";
     msg?: string;
+    lenghtMsg?: string;
+    children?: string;
     inputClass?: string;
   };
 
@@ -74,15 +76,25 @@ const Input = ({
   type = "text",
   variant = "default",
   msg = "",
+  lenghtMsg = "",
   inputClass,
+  children,
   ...props
 }: InputProps) => {
   return (
     <div className="flex flex-col gap-2">
-      <input
-        className={twMerge(cx([inputVariants({ variant }), inputClass]))}
-        {...props}
-      />
+      <div className="flex gap-2">
+        <input
+          className={twMerge(
+            "flex-1",
+            cx([inputVariants({ variant }), inputClass]),
+          )}
+          {...props}
+        />
+        {children}
+      </div>
+
+      <div className="flex items-center">
 
       {msg.length > 0 && (
         <p
@@ -102,6 +114,10 @@ const Input = ({
           {msg}
         </p>
       )}
+      {lenghtMsg.length > 0 && (
+        <p className="text-xs/none text-gray-600 ml-auto">0 / {lenghtMsg}</p>
+      )}
+      </div>
     </div>
   );
 };
