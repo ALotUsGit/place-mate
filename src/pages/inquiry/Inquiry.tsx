@@ -11,7 +11,7 @@ const Inquiry = () => {
   const location = useLocation();
 
   return (
-    <MainComponent className="my-20 max-w-7xl">
+    <MainComponent className="max-w-7xl">
       <h2 className="mb-10 text-4xl font-bold">문의사항</h2>
 
       <nav className="mb-6 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">

@@ -31,7 +31,7 @@ const QnaDetail = () => {
   }, []);
 
   return (
-    <MainComponent>
+    <MainComponent className="max-w-7xl">
       <section className="mb-10">
         <div className="mb-10 border-b border-gray-300 pb-10">
           <span>{qnaData?.userId}</span>
