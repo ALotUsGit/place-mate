@@ -13,6 +13,9 @@ import Qna from "./pages/inquiry/qna/Qna";
 import Inquiry from "./pages/inquiry/Inquiry";
 import QnaDetail from "./pages/inquiry/qna/QnaDetail";
 import QnaEnroll from "./pages/inquiry/qna/QnaEnroll";
+import MyPage from "./pages/mypage/MyPage";
+import PlaceList from "./pages/mypage/host/PlaceList";
+import PlaceEnroll from "./pages/mypage/host/PlaceEnroll";
 
 function App() {
   return (
@@ -31,6 +34,11 @@ function App() {
         </Route>
         <Route path="/qna/:id" element={<QnaDetail />} />
         <Route path="/qnaEnroll" element={<QnaEnroll />} />
+
+        <Route element={<MyPage />}>
+          <Route path="/host/placeList" element={<PlaceList />} />
+          <Route path="/host/placeEnroll" element={<PlaceEnroll />} />
+        </Route>
 
         <Route path="/signin" element={<SignIn />} />
         <Route path="/findPassword" element={<FindPassword />} />

@@ -139,7 +139,13 @@ const Place = () => {
           {loading ? (
             <LoadPlaceItem />
           ) : (
-            placeData.map((data) => <PlaceItem key={data.id} data={data} />)
+            placeData.map((data) => (
+              <li>
+                <Link to="/place">
+                  <PlaceItem key={data.id} data={data} />
+                </Link>
+              </li>
+            ))
           )}
         </ul>
 

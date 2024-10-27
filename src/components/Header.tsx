@@ -4,25 +4,24 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <header className="sticky top-0 bg-white z-50">
-      <div className="flex items-center gap-10 max-w-screen-2xl mx-auto py-6 px-20 2xl:px-0">
-
-        <Link to="/" className="text-2xl leading-none font-bold">
+    <header className="sticky top-0 z-50 bg-white">
+      <div className="mx-auto flex max-w-screen-2xl items-center gap-10 px-20 py-6 2xl:px-0">
+        <Link to="/" className="text-2xl font-bold leading-none">
           PLACE MATE
         </Link>
 
-        <nav className="flex-1 flex gap-6">
+        <nav className="flex flex-1 gap-6">
           <Link to="/place">PLACE</Link>
           <Link to="/notice">NOTICE</Link>
           <Link to="/faq">INQUIRY</Link>
         </nav>
 
         <div className="flex gap-4 text-gray-600">
-          <Link to="/mypage">
+          <Link to="/host/placeList">
             <UserIcon className="size-6" />
           </Link>
           <Link to="/signin">
-            <ArrowLeftStartOnRectangleIcon className="size-6 " />
+            <ArrowLeftStartOnRectangleIcon className="size-6" />
           </Link>
         </div>
       </div>
