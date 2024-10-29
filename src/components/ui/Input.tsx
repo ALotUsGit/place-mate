@@ -26,7 +26,7 @@ type InputProps = VariantProps<typeof inputVariants> &
   };
 
 const inputVariants = cva(
-  "flex items-center gap-2 rounded-lg leading-none border border-gray-400 px-6 py-3 focus:ring-transparent placeholder:text-gray-400",
+  "flex items-center gap-2 rounded-lg border border-gray-400 px-6 py-3 text-sm/none placeholder:text-gray-400 focus:ring-transparent disabled:bg-gray-200",
   {
     variants: {
       variant: {
@@ -94,30 +94,33 @@ const Input = ({
         {children}
       </div>
 
-      <div className="flex items-center">
-
-      {msg.length > 0 && (
-        <p
-          className={twMerge(
-            "flex items-center gap-2 text-xs/none text-gray-600",
-            variant === "error" && "text-rose-600",
-            variant === "success" && "text-indigo-600",
+      {(msg.length > 0 || lenghtMsg.length > 0) && (
+        <div className="flex items-center">
+          {msg.length > 0 && (
+            <p
+              className={twMerge(
+                "flex items-center gap-2 text-xs/none text-gray-600",
+                variant === "error" && "text-rose-600",
+                variant === "success" && "text-indigo-600",
+              )}
+            >
+              {variant === "error" ? (
+                <ExclamationCircleIcon className="size-4" />
+              ) : variant === "success" ? (
+                <CheckCircleIcon className="size-4" />
+              ) : (
+                <InformationCircleIcon className="size-4" />
+              )}
+              {msg}
+            </p>
           )}
-        >
-          {variant === "error" ? (
-            <ExclamationCircleIcon className="size-4" />
-          ) : variant === "success" ? (
-            <CheckCircleIcon className="size-4" />
-          ) : (
-            <InformationCircleIcon className="size-4" />
+          {lenghtMsg.length > 0 && (
+            <p className="ml-auto text-xs/none text-gray-600">
+              0 / {lenghtMsg}
+            </p>
           )}
-          {msg}
-        </p>
+        </div>
       )}
-      {lenghtMsg.length > 0 && (
-        <p className="text-xs/none text-gray-600 ml-auto">0 / {lenghtMsg}</p>
-      )}
-      </div>
     </div>
   );
 };

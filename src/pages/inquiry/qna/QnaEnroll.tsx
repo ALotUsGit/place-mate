@@ -24,7 +24,7 @@ const QnaEnroll = () => {
               <DocumentIcon className="size-6" />
               <p className="text-lg/none font-bold">
                 문의 제목
-                <span className="font-normal text-rose-600">*</span>
+                <span className="font-normal text-rose-600"> *</span>
               </p>
             </div>
             <Input
@@ -40,7 +40,7 @@ const QnaEnroll = () => {
               <DocumentTextIcon className="size-6" />
               <p className="text-lg/none font-bold">
                 문의 내용
-                <span className="font-normal text-rose-600">*</span>
+                <span className="font-normal text-rose-600"> *</span>
               </p>
             </div>
             <Textarea
@@ -53,7 +53,9 @@ const QnaEnroll = () => {
           <div>
             <div className="mb-4 flex items-center gap-2">
               <PhotoIcon className="size-6" />
-              <p className="text-lg/none font-bold">이미지 업로드 (최대 5장)</p>
+              <p className="text-lg/none font-bold">
+                이미지 업로드 <span className="font-semibold">(최대 5장)</span>
+              </p>
             </div>
             <UploadImg>참고할 이미지를 업로드 해주세요.</UploadImg>
           </div>

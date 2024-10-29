@@ -14,7 +14,7 @@ const buttonVariants = cva(
         secondary: "text-white bg-indigo-600 hover:bg-indigo-700",
       },
       size: {
-        sm: "h-9 px-3 text-sm",
+        sm: "h-9 px-4 text-sm",
         md: "h-12 px-8 text-lg font-medium",
         lg: "w-full h-16 px-8 text-xl/none font-medium",
       },

@@ -21,6 +21,9 @@ const UploadImg = ({ children }: Props) => {
             src="../../../images/sample1.jpg"
             className="h-full w-full object-cover"
           />
+          <button className="absolute left-2 top-2 flex items-center justify-center rounded bg-black/50 p-1 text-[0.625rem]/none text-gray-200 transition-opacity hover:opacity-80">
+            대표
+          </button>
           <button className="absolute right-2 top-2 flex items-center justify-center rounded-full bg-black/50 p-1 transition-opacity hover:opacity-80">
             <TrashIcon className="size-3 text-white" />
           </button>
