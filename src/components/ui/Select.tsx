@@ -5,24 +5,17 @@ import { useState } from "react";
 import React from "react";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 
-type lists = {
-  value: string;
-  label: string;
-};
-
-type SelectListProps = {
-  lists: lists[];
-  checkbox?: boolean;
-  showList?: boolean;
-  className?: string;
-  children?: React.ReactNode;
-};
-
-type SelectProps = {
-  lists?: lists[];
+type Props = {
+  lists: {
+    value: string;
+    label: string;
+  }[];
   checkbox: boolean;
   dropdown?: boolean;
+  showList?: boolean;
   className?: string;
+  ulClass?: string;
+  listClass?: string;
   children?: React.ReactNode;
 };
 
@@ -30,20 +23,24 @@ const SelectList = ({
   lists,
   checkbox = false,
   showList,
-  className,
-}: SelectListProps) => {
+  listClass,
+  ulClass,
+}: Props) => {
   return (
     <ul
       className={twMerge(
         "absolute top-[120%] hidden w-max min-w-full flex-col rounded-lg border border-gray-200 bg-white py-2 drop-shadow-sm",
         showList && "flex",
-        className,
+        ulClass,
       )}
     >
       {lists.map((list) => (
         <li
           key={list.value}
-          className="cursor-pointer px-4 py-1 hover:bg-gray-50"
+          className={twMerge(
+            "cursor-pointer px-4 py-1 hover:bg-gray-50",
+            listClass,
+          )}
         >
           {checkbox ? (
             <Checkbox>{list.label}</Checkbox>
@@ -63,8 +60,10 @@ const Select = ({
   checkbox,
   dropdown = true,
   className,
+  ulClass,
+  listClass,
   children,
-}: SelectProps) => {
+}: Props) => {
   const [showList, setShowList] = useState(false);
 
   const toggleList = () => {
@@ -73,13 +72,19 @@ const Select = ({
 
   return (
     <div className={twMerge("relative", className)}>
-      <Button onClick={toggleList}>
+      <Button type="button" onClick={toggleList}>
         {children}
         <ChevronDownIcon
           className={`size-4 ${!dropdown && "hidden"} ${showList && "rotate-180"}`}
         />
       </Button>
-      <SelectList lists={lists} checkbox={checkbox} showList={showList} />
+      <SelectList
+        lists={lists}
+        checkbox={checkbox}
+        showList={showList}
+        ulClass={ulClass}
+        listClass={listClass}
+      />
     </div>
   );
 };

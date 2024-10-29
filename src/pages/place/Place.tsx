@@ -102,7 +102,13 @@ const Place = () => {
           {loading ? (
             <LoadPlaceItem />
           ) : (
-            placeData.map((data) => <PlaceItem key={data.id} data={data} />)
+            placeData.map((data) => (
+              <li key={data.id}>
+                <Link to="/place">
+                  <PlaceItem data={data} />
+                </Link>
+              </li>
+            ))
           )}
         </ul>
       </section>
@@ -140,9 +146,9 @@ const Place = () => {
             <LoadPlaceItem />
           ) : (
             placeData.map((data) => (
-              <li>
+              <li key={data.id}>
                 <Link to="/place">
-                  <PlaceItem key={data.id} data={data} />
+                  <PlaceItem data={data} />
                 </Link>
               </li>
             ))
