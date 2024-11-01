@@ -104,7 +104,7 @@ const Place = () => {
           ) : (
             placeData.map((data) => (
               <li key={data.id}>
-                <Link to="/place">
+                <Link to={`/place/${data.id}`}>
                   <PlaceItem data={data} />
                 </Link>
               </li>
