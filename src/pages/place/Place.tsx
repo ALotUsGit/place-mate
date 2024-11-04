@@ -71,7 +71,6 @@ const Place = () => {
     const fetchData = async () => {
       try {
         const { data } = await fetchPlaces();
-        console.log(data);
         setPlaceData(data);
       } catch (error) {
         console.error("데이터를 불러오는데 실패했습니다.", error);
