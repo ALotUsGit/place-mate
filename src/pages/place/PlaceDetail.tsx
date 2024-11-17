@@ -12,6 +12,15 @@ import { useParams } from "react-router-dom";
 import { useEffect, useId, useState } from "react";
 import { Response, fetchPlace } from "../../requests/place/fetchPlace";
 import PlaceDetailForm from "../../components/PlaceDetailForm";
+import { CustomOverlayMap, Map, MapMarker } from "react-kakao-maps-sdk";
+import Button from "../../components/ui/Button";
+import FeadbackComponent from "../../components/FeadbackComponent";
+import Pagination from "../../components/ui/Pagination";
+import {
+  ReviewsRes,
+  fetchPlaceReviews,
+} from "../../requests/place/fetchPlaceReviews";
+import { QnARes, fetchPlaceQnA } from "../../requests/place/fetchPlaceQnA";
 
 type Params = {
   id: string | undefined;
@@ -20,6 +29,8 @@ type Params = {
 const PlaceDetail = () => {
   const { id } = useParams<Params>();
   const [placeDetail, setPlaceDetail] = useState<Response>();
+  const [reviews, setReviews] = useState<ReviewsRes[]>();
+  const [qnas, setQnas] = useState<QnARes[]>();
 
   const tagId = useId();
 
@@ -27,7 +38,11 @@ const PlaceDetail = () => {
     const fetchData = async () => {
       try {
         const { data } = await fetchPlace({ placeId: id });
+        const { data: Reviews } = await fetchPlaceReviews({ placeId: id });
+        const { data: Qnas } = await fetchPlaceQnA({ placeId: id });
         setPlaceDetail(data);
+        setReviews(Reviews);
+        setQnas(Qnas);
       } catch (error) {
         console.error("데이터를 불러오는데 실패했습니다.", error);
       }
@@ -39,7 +54,7 @@ const PlaceDetail = () => {
     <MainComponent className="mb-20 mt-10">
       <h2 className="text-4xl/none font-bold">{placeDetail?.title}</h2>
 
-      <div className="mt-10 flex gap-20">
+      <div className="mt-10 flex gap-10 2xl:gap-20">
         <article className="flex flex-auto flex-col gap-10">
           <section className="flex flex-col gap-6">
             <div className="h-[30rem] overflow-hidden rounded-xl">
@@ -111,6 +126,20 @@ const PlaceDetail = () => {
                 <MapPinIcon className="size-6" />
                 위치 안내
               </h3>
+              <Map
+                center={{ lat: 33.450701, lng: 126.570667 }}
+                className="h-96 rounded-lg"
+                level={3}
+              >
+                <CustomOverlayMap
+                  position={{ lat: 33.450701, lng: 126.570667 }}
+                >
+                  <span className="absolute bottom-[160%] left-1/2 -translate-x-1/2 rounded bg-gray-900 px-2 py-1 text-xs text-gray-100">
+                    {placeDetail?.title}
+                  </span>
+                  <div className="size-3 rounded-full border-2 border-gray-900 bg-white" />
+                </CustomOverlayMap>
+              </Map>
             </div>
 
             <div>
@@ -127,17 +156,32 @@ const PlaceDetail = () => {
               <ChatBubbleBottomCenterTextIcon className="size-6" />
               이용자 후기
             </h3>
+            <div className="flex flex-col gap-6">
+              {reviews?.map((review) => (
+                <FeadbackComponent key={review.id} data={review} />
+              ))}
+              <Pagination pages={1} currentPage={1} />
+            </div>
           </section>
 
           <section>
-            <h3 className="mb-6 flex items-center gap-2 text-lg/none font-bold">
-              <QuestionMarkCircleIcon className="size-6" />
-              Q&A
-            </h3>
+            <div className="flex items-center justify-between gap-4">
+              <h3 className="mb-6 flex items-center gap-2 text-lg/none font-bold">
+                <QuestionMarkCircleIcon className="size-6" />
+                Q&A
+              </h3>
+              <Button>문의하기</Button>
+            </div>
+            <div className="flex flex-col gap-6">
+              {qnas?.map((qna) => (
+                <FeadbackComponent key={qna.id} data={qna} />
+              ))}
+              <Pagination pages={1} currentPage={1} />
+            </div>
           </section>
         </article>
 
-        <aside className="sticky top-28 flex h-fit w-2/5 flex-col gap-6 rounded-xl border border-gray-400 px-8 py-10">
+        <aside className="sticky top-28 flex h-fit w-2/5 max-w-md flex-col gap-6 rounded-xl border border-gray-400 px-8 py-10">
           <div>
             <p className="mb-4">
               <span className="text-3xl">
@@ -170,7 +214,10 @@ const PlaceDetail = () => {
             </p>
           </div>
 
-          <PlaceDetailForm />
+          <PlaceDetailForm
+            standardPeople={placeDetail?.standardPeople}
+            maxPeople={placeDetail?.maxPeople}
+          />
         </aside>
       </div>
     </MainComponent>

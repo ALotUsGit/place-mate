@@ -85,6 +85,7 @@ const Input = ({
     <div className="flex flex-col gap-2">
       <div className="flex gap-2">
         <input
+          type={type}
           className={twMerge(
             "flex-1",
             cx([inputVariants({ variant }), inputClass]),
