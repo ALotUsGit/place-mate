@@ -22,7 +22,7 @@ const QnaDetail = () => {
     const fetchData = async () => {
       try {
         const { data } = await fetchInquiry();
-        setQnaData(data.find((item) => item.id === id));
+        setQnaData(data);
       } catch (error) {
         console.error("데이터를 불러오는데 실패했습니다.", error);
       }
