@@ -1,6 +1,7 @@
-import { ArrowUpOnSquareIcon } from "@heroicons/react/24/outline";
+import { ArrowUpOnSquareIcon, CalendarIcon } from "@heroicons/react/24/outline";
 import Button from "./ui/Button";
 import { Input } from "./ui/Input";
+import Calendar from "./ui/Calendar";
 
 type Props = {
   standardPeople?: number;
@@ -12,6 +13,7 @@ const PlaceDetailForm = ({ standardPeople, maxPeople }: Props) => {
       <div>
         <p className="mb-4 font-bold">이용일시</p>
         <Input placeholder="이용 일정을 선택하세요." />
+        <Calendar />
       </div>
       <div>
         <p className="mb-4 font-bold">총인원</p>

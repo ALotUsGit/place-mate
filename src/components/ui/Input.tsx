@@ -21,7 +21,7 @@ type InputProps = VariantProps<typeof inputVariants> &
     variant?: "default" | "error" | "success";
     msg?: string;
     lenghtMsg?: string;
-    children?: string;
+    children?: React.ReactNode;
     inputClass?: string;
   };
 
