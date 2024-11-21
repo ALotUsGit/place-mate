@@ -26,7 +26,7 @@ type InputProps = VariantProps<typeof inputVariants> &
   };
 
 const inputVariants = cva(
-  "flex items-center gap-2 rounded-lg border border-gray-400 px-6 py-3 text-sm/none placeholder:text-gray-400 focus:ring-transparent disabled:bg-gray-200",
+  "flex items-center gap-2 rounded-lg border border-gray-400 px-6 py-3 text-sm/none placeholder:text-gray-400 focus:ring-transparent disabled:bg-gray-200 read-only:cursor-default",
   {
     variants: {
       variant: {

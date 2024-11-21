@@ -12,7 +12,6 @@ const PlaceDetailForm = ({ standardPeople, maxPeople }: Props) => {
     <form action="" className="flex flex-col gap-6">
       <div>
         <p className="mb-4 font-bold">이용일시</p>
-        <Input placeholder="이용 일정을 선택하세요." />
         <Calendar />
       </div>
       <div>
