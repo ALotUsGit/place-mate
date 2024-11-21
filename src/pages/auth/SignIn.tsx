@@ -5,7 +5,7 @@ import { Input } from "../../components/ui/Input";
 
 const SignIn = () => {
   return (
-    <MainComponent className="flex max-w-[30rem] flex-col items-center justify-center gap-9">
+    <MainComponent className="flex max-w-[30rem] flex-col px-0 items-center justify-center gap-9">
       <form action="" className="flex w-full flex-col gap-4">
         <Input placeholder="이메일을 입력하세요." />
         <Input type="password" placeholder="비밀번호를 입력하세요." />

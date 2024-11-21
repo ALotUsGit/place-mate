@@ -13,14 +13,14 @@ const Checkbox = ({ className, children, ...props }: checkboxProps) => {
   const id = useId();
 
   return (
-    <label htmlFor={id} className="flex cursor-pointer items-center gap-2">
+    <label htmlFor={id} className="flex cursor-pointer gap-2">
       <input
         type="checkbox"
         id={id}
-        className="cursor-pointer rounded-sm border-gray-400 checked:bg-indigo-600 checked:hover:bg-indigo-700 focus:ring-transparent checked:focus:bg-indigo-700"
+        className="mt-0.5 cursor-pointer rounded-sm border-gray-400 checked:bg-indigo-600 checked:hover:bg-indigo-700 focus:ring-transparent checked:focus:bg-indigo-700"
         {...props}
       />
-      <span className={twMerge("text-sm/none text-gray-600", className)}>
+      <span className={twMerge("text-sm text-gray-600", className)}>
         {children}
       </span>
     </label>

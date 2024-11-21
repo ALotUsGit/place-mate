@@ -10,7 +10,7 @@ import Checkbox from "../../components/ui/Checkbox";
 
 const Signup = () => {
   return (
-    <MainComponent className="flex max-w-[30rem] items-center">
+    <MainComponent className="flex max-w-[30rem] items-center px-0">
       <form className="flex w-full flex-col gap-10">
         <div>
           <div className="mb-4 flex items-center gap-2">
