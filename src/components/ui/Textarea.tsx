@@ -6,15 +6,21 @@ import {
 import { VariantProps, cva, cx } from "class-variance-authority";
 import { twMerge } from "tailwind-merge";
 
+type cmProps = {
+  variant?: "default" | "error" | "success";
+  className?: string;
+  children?: React.ReactNode;
+};
+
 type Props = VariantProps<typeof textareaVariants> &
-  React.ComponentPropsWithRef<"textarea"> & {
+  React.ComponentPropsWithRef<"textarea"> &
+  cmProps & {
     placeholder: string;
-    variant?: "default" | "error" | "success";
-    className?: string;
-    msg?: string;
-    lenghtMsg?: string;
-    children?: string;
   };
+
+type LabelProps = cmProps & {
+  icon?: boolean;
+};
 
 const textareaVariants = cva(
   "resize-none flex items-center gap-2 h-[18.75rem] rounded-lg leading-none border border-gray-400 px-6 py-5 focus:ring-transparent placeholder:text-gray-400",
@@ -34,8 +40,6 @@ const textareaVariants = cva(
 
 const Textarea = ({
   variant = "default",
-  msg = "",
-  lenghtMsg = "",
   className,
   children,
   ...props
@@ -43,39 +47,41 @@ const Textarea = ({
   return (
     <div className="flex flex-col gap-2">
       <textarea
-        name=""
-        id=""
         className={twMerge(cx([textareaVariants({ variant }), className]))}
         {...props}
-      >
-        {children}
-      </textarea>
-
-      <div className="flex items-center">
-        {msg.length > 0 && (
-          <p
-            className={twMerge(
-              "flex items-center gap-2 text-xs/none text-gray-600",
-              variant === "error" && "text-rose-600",
-              variant === "success" && "text-indigo-600",
-            )}
-          >
-            {variant === "error" ? (
-              <ExclamationCircleIcon className="size-4" />
-            ) : variant === "success" ? (
-              <CheckCircleIcon className="size-4" />
-            ) : (
-              <InformationCircleIcon className="size-4" />
-            )}
-            {msg}
-          </p>
-        )}
-        {lenghtMsg.length > 0 && (
-          <p className="ml-auto text-xs/none text-gray-600">0 / {lenghtMsg}</p>
-        )}
-      </div>
+      />
+      {children}
     </div>
   );
 };
 
-export { Textarea };
+const TextareaLabel = ({
+  icon = true,
+  variant,
+  className,
+  children,
+}: LabelProps) => {
+  return (
+    <label
+      className={twMerge(
+        "flex items-center gap-2 text-xs/none text-gray-600",
+        variant === "error" && "text-rose-600",
+        variant === "success" && "text-indigo-600",
+        !icon && "ml-auto",
+        className,
+      )}
+    >
+      {icon &&
+        (variant === "error" ? (
+          <ExclamationCircleIcon className="size-4" />
+        ) : variant === "success" ? (
+          <CheckCircleIcon className="size-4" />
+        ) : (
+          <InformationCircleIcon className="size-4" />
+        ))}
+      {children}
+    </label>
+  );
+};
+
+export { Textarea, TextareaLabel };

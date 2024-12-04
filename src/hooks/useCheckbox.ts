@@ -1,12 +1,13 @@
 import { useState } from "react";
 
-type UseCheckbox = { initialValue: boolean } & [
+type UseCheckbox = [
   boolean,
   () => void,
   () => void,
+  React.Dispatch<React.SetStateAction<boolean>>,
 ];
 
-const useCheckbox = ({ initialValue }: UseCheckbox) => {
+const useCheckbox = (initialValue: boolean): UseCheckbox => {
   const [checked, setChecked] = useState(initialValue);
 
   const handleChange = () => {
@@ -17,7 +18,7 @@ const useCheckbox = ({ initialValue }: UseCheckbox) => {
     setChecked(false);
   };
 
-  return [checked, handleChange, reset];
+  return [checked, handleChange, reset, setChecked];
 };
 
 export default useCheckbox;

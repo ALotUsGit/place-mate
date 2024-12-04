@@ -1,4 +1,4 @@
-import { ArrowUpOnSquareIcon, CalendarIcon } from "@heroicons/react/24/outline";
+import { ArrowUpOnSquareIcon } from "@heroicons/react/24/outline";
 import Button from "./ui/Button";
 import { Input } from "./ui/Input";
 import Calendar from "./ui/Calendar";
@@ -19,7 +19,7 @@ const PlaceDetailForm = ({ standardPeople, maxPeople }: Props) => {
         <Input
           placeholder="총인원 수를 입력하세요."
           type="number"
-          value={standardPeople}
+          defaultValue={standardPeople}
           min={standardPeople}
           max={maxPeople}
         />

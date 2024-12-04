@@ -14,16 +14,21 @@ type SearchProps = VariantProps<typeof inputVariants> &
     iconSize?: string;
   };
 
+type cmProps = {
+  variant?: "default" | "error" | "success";
+  className?: string;
+  children?: React.ReactNode;
+};
+
 type InputProps = VariantProps<typeof inputVariants> &
-  Omit<React.ComponentPropsWithRef<"input">, "type"> & {
+  Omit<React.ComponentPropsWithRef<"input">, "type"> &
+  cmProps & {
     type?: "text" | "email" | "password" | "date" | "number";
-    placeholder: string;
-    variant?: "default" | "error" | "success";
-    msg?: string;
-    lenghtMsg?: string;
-    children?: React.ReactNode;
-    inputClass?: string;
   };
+
+type LabelProps = cmProps & {
+  icon?: boolean;
+};
 
 const inputVariants = cva(
   "flex items-center gap-2 rounded-lg border border-gray-400 px-6 py-3 text-sm/none placeholder:text-gray-400 focus:ring-transparent disabled:bg-gray-200 read-only:cursor-default",
@@ -32,7 +37,7 @@ const inputVariants = cva(
       variant: {
         default: "border-gray-400",
         success: "border-indigo-600",
-        error: "border-rose-600",
+        error: "border-rose-600 focus:border-rose-700",
       },
     },
     defaultVariants: {
@@ -75,55 +80,56 @@ const SearchInput = forwardRef(
 const Input = ({
   type = "text",
   variant = "default",
-  msg = "",
-  lenghtMsg = "",
-  inputClass,
+  className,
   children,
   ...props
 }: InputProps) => {
   return (
-    <div className="flex flex-col gap-2">
-      <div className="flex gap-2">
-        <input
-          type={type}
-          className={twMerge(
-            "flex-1",
-            cx([inputVariants({ variant }), inputClass]),
-          )}
-          {...props}
-        />
-        {children}
-      </div>
-
-      {(msg.length > 0 || lenghtMsg.length > 0) && (
-        <div className="flex items-center">
-          {msg.length > 0 && (
-            <p
-              className={twMerge(
-                "flex items-center gap-2 text-xs/none text-gray-600",
-                variant === "error" && "text-rose-600",
-                variant === "success" && "text-indigo-600",
-              )}
-            >
-              {variant === "error" ? (
-                <ExclamationCircleIcon className="size-4" />
-              ) : variant === "success" ? (
-                <CheckCircleIcon className="size-4" />
-              ) : (
-                <InformationCircleIcon className="size-4" />
-              )}
-              {msg}
-            </p>
-          )}
-          {lenghtMsg.length > 0 && (
-            <p className="ml-auto text-xs/none text-gray-600">
-              0 / {lenghtMsg}
-            </p>
-          )}
-        </div>
-      )}
+    <div className="flex gap-2">
+      <input
+        type={type}
+        className={twMerge(
+          "flex-1",
+          cx([inputVariants({ variant }), className]),
+        )}
+        {...props}
+      />
+      {children}
     </div>
   );
 };
 
-export { SearchInput, Input };
+const InputLabel = ({
+  icon = true,
+  variant,
+  className,
+  children,
+}: LabelProps) => {
+  return (
+    <label
+      className={twMerge(
+        "flex items-center gap-2 text-xs/none text-gray-600",
+        variant === "error" && "text-rose-600",
+        variant === "success" && "text-indigo-600",
+        !icon && "ml-auto",
+        className,
+      )}
+    >
+      {icon &&
+        (variant === "error" ? (
+          <ExclamationCircleIcon className="size-4" />
+        ) : variant === "success" ? (
+          <CheckCircleIcon className="size-4" />
+        ) : (
+          <InformationCircleIcon className="size-4" />
+        ))}
+      {children}
+    </label>
+  );
+};
+
+const InputWrap = ({ children }: cmProps) => {
+  return <div className="flex flex-col gap-2">{children}</div>;
+};
+
+export { SearchInput, InputWrap, Input, InputLabel };
