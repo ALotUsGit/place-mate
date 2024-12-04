@@ -10,7 +10,7 @@ const useInput = (initial: string): HookReturn => {
   const [value, setValue] = useState(initial);
 
   const onChangeValue = (e: React.ChangeEvent<HTMLInputElement>) =>
-    setValue(e.target.value.trim());
+    setValue(e.target.value);
 
   const reset = useCallback(() => setValue(""), [initial]);
 

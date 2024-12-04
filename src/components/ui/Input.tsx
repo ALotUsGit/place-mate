@@ -26,6 +26,10 @@ type InputProps = VariantProps<typeof inputVariants> &
     type?: "text" | "email" | "password" | "date" | "number";
   };
 
+type LabelProps = cmProps & {
+  icon?: boolean;
+};
+
 const inputVariants = cva(
   "flex items-center gap-2 rounded-lg border border-gray-400 px-6 py-3 text-sm/none placeholder:text-gray-400 focus:ring-transparent disabled:bg-gray-200 read-only:cursor-default",
   {
@@ -95,30 +99,32 @@ const Input = ({
   );
 };
 
-const InputLabel = ({ variant, children }: cmProps) => {
+const InputLabel = ({
+  icon = true,
+  variant,
+  className,
+  children,
+}: LabelProps) => {
   return (
     <label
       className={twMerge(
-        "flex items-center gap-1 text-xs/none text-gray-600",
+        "flex items-center gap-2 text-xs/none text-gray-600",
         variant === "error" && "text-rose-600",
         variant === "success" && "text-indigo-600",
+        !icon && "ml-auto",
+        className,
       )}
     >
-      {variant === "error" ? (
-        <ExclamationCircleIcon className="size-4" />
-      ) : variant === "success" ? (
-        <CheckCircleIcon className="size-4" />
-      ) : (
-        <InformationCircleIcon className="size-4" />
-      )}
+      {icon &&
+        (variant === "error" ? (
+          <ExclamationCircleIcon className="size-4" />
+        ) : variant === "success" ? (
+          <CheckCircleIcon className="size-4" />
+        ) : (
+          <InformationCircleIcon className="size-4" />
+        ))}
       {children}
     </label>
-  );
-};
-
-const InputLengLabel = ({ children }: cmProps) => {
-  return (
-    <span className="ml-auto text-xs/none text-gray-600">0 / {children}</span>
   );
 };
 
@@ -126,4 +132,4 @@ const InputWrap = ({ children }: cmProps) => {
   return <div className="flex flex-col gap-2">{children}</div>;
 };
 
-export { SearchInput, InputWrap, Input, InputLabel, InputLengLabel };
+export { SearchInput, InputWrap, Input, InputLabel };

@@ -12,6 +12,7 @@ const buttonVariants = cva(
         default: "border border-gray-400 text-gray-600 hover:bg-gray-50",
         primary: "border border-indigo-400 text-indigo-600 hover:bg-indigo-50",
         secondary: "text-white bg-indigo-600 hover:bg-indigo-700",
+        error: "text-white bg-rose-600 hover:bg-rose-700",
       },
       size: {
         sm: "h-9 px-4 text-sm",

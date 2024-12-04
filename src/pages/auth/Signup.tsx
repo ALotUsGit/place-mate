@@ -95,7 +95,7 @@ const Signup = () => {
               placeholder="닉네임을 입력하세요."
               maxLength={10}
               variant={nickErr ? "error" : "default"}
-              value={nickname}
+              value={nickname.trim()}
               onChange={onChangeNickname}
               onBlur={nickCheck}
             >
@@ -119,7 +119,7 @@ const Signup = () => {
             <Input
               placeholder="이메일을 입력하세요."
               variant={emailErr ? "error" : "default"}
-              value={email}
+              value={email.trim()}
               onChange={onChangeEmail}
               onBlur={emailCheck}
             >
@@ -145,7 +145,7 @@ const Signup = () => {
               placeholder="비밀번호를 입력하세요."
               maxLength={15}
               variant={passwordErr ? "error" : "default"}
-              value={password}
+              value={password.trim()}
               onChange={onChangePassword}
               onBlur={pwCheck}
             />
@@ -168,7 +168,7 @@ const Signup = () => {
               type="password"
               placeholder="비밀번호를 입력하세요."
               variant={pwDupliteErr ? "error" : "default"}
-              value={pwDuplicate}
+              value={pwDuplicate.trim()}
               onChange={onChangePwDuplicate}
               onBlur={pwDuplicateCheck}
             />

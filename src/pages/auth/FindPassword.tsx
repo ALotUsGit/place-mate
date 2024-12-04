@@ -27,7 +27,7 @@ const FindPassword = () => {
             placeholder="이메일을 입력하세요."
             onChange={onChangeEmail}
             variant={emailErr ? "error" : "default"}
-            value={email}
+            value={email.trim()}
           />
           {emailErr && (
             <InputLabel variant="error">가입된 이메일이 없습니다.</InputLabel>

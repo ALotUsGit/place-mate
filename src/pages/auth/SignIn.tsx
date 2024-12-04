@@ -35,7 +35,7 @@ const SignIn = () => {
             placeholder="이메일을 입력하세요."
             onChange={onChangeEmail}
             variant={emailErr ? "error" : "default"}
-            value={email}
+            value={email.trim()}
           />
           {emailErr && (
             <InputLabel variant="error">가입된 이메일이 없습니다.</InputLabel>
@@ -48,7 +48,7 @@ const SignIn = () => {
             maxLength={15}
             onChange={onChangePassword}
             variant={passwordErr ? "error" : "default"}
-            value={password}
+            value={password.trim()}
           />
           {passwordErr && (
             <InputLabel variant="error">비밀번호를 확인해 주세요.</InputLabel>
@@ -74,8 +74,10 @@ const SignIn = () => {
         </Button>
       </Link>
 
-      <div className="flex w-full flex-wrap gap-y-1 gap-x-4 rounded-md bg-gray-100 px-4 py-3">
-        <p className="w-full font-medium text-sm text-gray-500">테스트 이메일 및 비밀번호</p>
+      <div className="flex w-full flex-wrap gap-x-4 gap-y-1 rounded-md bg-gray-100 px-4 py-3">
+        <p className="w-full text-sm font-medium text-gray-500">
+          테스트 이메일 및 비밀번호
+        </p>
         <p className="text-sm text-gray-500">이메일 : placemate@sample.com</p>
         <p className="text-sm text-gray-500">비밀번호 : 1234@place</p>
       </div>
