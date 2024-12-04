@@ -28,6 +28,7 @@ const QnaEnroll = () => {
       setCancleAlert(true);
       return;
     }
+    navigate("/qna");
   };
 
   return (
