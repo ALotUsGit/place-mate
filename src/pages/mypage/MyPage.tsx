@@ -21,8 +21,8 @@ const NAV = [
 
 const MyPage = () => {
   return (
-    <MainComponent className="flex gap-32">
-      <aside className="min-w-96">
+    <MainComponent className="flex gap-8 lg:gap-16 2xl:gap-32">
+      <aside className="min-w-72 2xl:min-w-96">
         <div className="mb-10 flex items-center gap-6">
           <div className="size-20 overflow-hidden rounded-full bg-gray-200"></div>
           <div className="flex flex-col gap-2">

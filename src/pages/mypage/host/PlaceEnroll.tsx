@@ -12,10 +12,12 @@ import {
 import Button from "../../../components/ui/Button";
 import UploadImg from "../../../components/ui/UploadImg";
 import { Select } from "../../../components/ui/Select";
-import { Textarea } from "../../../components/ui/Textarea";
-import { Input } from "../../../components/ui/Input";
+import { Textarea, TextareaLabel } from "../../../components/ui/Textarea";
+import { Input, InputLabel, InputWrap } from "../../../components/ui/Input";
 import Radio from "../../../components/ui/Radio";
 import Checkbox from "../../../components/ui/Checkbox";
+import useInput from "../../../hooks/useInput";
+import useTextarea from "../../../hooks/useTextarea";
 
 const placeKeyword = [
   { value: "filming", label: "촬영" },
@@ -36,6 +38,9 @@ const placeKeyword = [
 ];
 
 const PlaceEnroll = () => {
+  const [title, onChangeTitle] = useInput("");
+  const [introduce, onChangeIntroduce] = useTextarea("");
+
   return (
     <>
       <div className="mb-10 flex items-center justify-between">
@@ -54,12 +59,15 @@ const PlaceEnroll = () => {
               <span className="font-normal text-rose-600"> *</span>
             </p>
           </div>
-          <Input
-            placeholder="제목을 입력하세요."
-            msg=""
-            maxLength={100}
-            lenghtMsg="최대 100자"
-          />
+          <InputWrap>
+            <Input
+              placeholder="제목을 입력하세요."
+              maxLength={100}
+              value={title}
+              onChange={onChangeTitle}
+            />
+            <InputLabel icon={false}>{title.length} / 최대 100자</InputLabel>
+          </InputWrap>
         </div>
 
         <div>
@@ -117,9 +125,13 @@ const PlaceEnroll = () => {
           </div>
           <Textarea
             placeholder="장소에 대해 소개 해주세요."
-            minLength={10}
-            lenghtMsg="최소 10자"
-          />
+            value={introduce}
+            onChange={onChangeIntroduce}
+          >
+            <TextareaLabel icon={false}>
+              {introduce.length} / 최소 10자
+            </TextareaLabel>
+          </Textarea>
         </div>
 
         <div>
@@ -127,9 +139,10 @@ const PlaceEnroll = () => {
             <PhotoIcon className="size-6" />
             <p className="text-lg/none font-bold">
               장소 사진 <span className="font-semibold">(최대 20장)</span>
+              <span className="font-normal text-rose-600"> *</span>
             </p>
           </div>
-          <UploadImg>최소 1장 이상 업로드 해주세요.</UploadImg>
+          <UploadImg max={20}>최소 1장 이상 업로드 해주세요.</UploadImg>
         </div>
 
         <div>
